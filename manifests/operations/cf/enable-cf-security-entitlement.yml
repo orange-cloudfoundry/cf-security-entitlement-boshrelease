@@ -1,0 +1,77 @@
+- type: replace
+  path: /instance_groups/name=api/jobs/-
+  value:
+    name: cf-security-entitlement
+    release: cf-security-entitlement
+    properties:
+      cf-security-entitlement:
+        ssl_cert: ((cf_security_entitlement_public_tls.certificate))
+        ssl_key: ((cf_security_entitlement_public_tls.private_key))
+        cloud_foundry:
+          endpoint: https://api.((system_domain))
+          client_id: cf-security-entitlement
+          client_secret: ((uaa_clients_cf-security-entitlement_secret))
+        jwt:
+          alg: "RS256"
+          secret: ((uaa_jwt_signing_key.public_key))
+        mysql:
+          user: cf-security-entitlement
+          password: ((cf-security-entitlement-mysql-password))
+          host: sql-db.service.cf.internal
+          database: cf-security-entitlement
+
+- type: replace
+  path: /instance_groups/name=api/jobs/name=route_registrar/properties/route_registrar/routes/-
+  value:
+    name: cf-security-entitlement-api
+    registration_interval: 10s
+    tls_port: 8091
+    server_cert_domain_san: "cfsecurity.((system_domain))"
+    tags:
+      component: cf-security-entitlement
+    uris:
+      - cfsecurity.((system_domain))
+
+- type: replace
+  path: /instance_groups/name=uaa/jobs/name=uaa/properties/uaa/clients/cf-security-entitlement?
+  value:
+    authorities: cloud_controller.admin
+    authorized-grant-types: client_credentials,refresh_token
+    secret: "((uaa_clients_cf-security-entitlement_secret))"
+
+- type: replace
+  path: /instance_groups/name=database/jobs/name=pxc-mysql/properties/seeded_databases/-
+  value:
+    name: cf-security-entitlement
+    username: cf-security-entitlement
+    password: ((cf-security-entitlement-mysql-password))
+
+- type: replace
+  path: /variables/-
+  value:
+    name: cf-security-entitlement-mysql-password
+    type: password
+
+- type: replace
+  path: /variables/-
+  value:
+    name: uaa_clients_cf-security-entitlement_secret
+    type: password
+
+- type: replace
+  path: /variables/-
+  value:
+    name: cf_security_entitlement_public_tls
+    type: certificate
+    options:
+      ca: service_cf_internal_ca
+      common_name: "cfsecurity.((system_domain))"
+      alternative_names:
+        - "cfsecurity.((system_domain))"
+        - cfsecurity.service.cf.internal
+
+releases:
+  - name: cf-security-entitlement
+    version: "1.0"
+    url: https://github.com/orange-cloudfoundry/cf-security-entitlement-boshrelease/releases/download/v1.0/cf-security-entitlement-1.0.tgz
+    sha1: 611d5f107411ddd2ed37ee5b8a5a8b9cd6102b2c

@@ -1,0 +1,66 @@
+---
+name: cf-security-entitlement
+
+templates:
+  bpm.yml: config/bpm.yml
+  config.yml.erb: config/config.yml
+  ssl_cert.pem.erb: config/ssl_cert.pem
+  ssl_key.pem.erb: config/ssl_key.pem
+
+consumes:
+  - name: database
+    type: database
+    optional: true
+
+packages:
+  - cf-security-entitlement-server
+
+properties:
+  cf-security-entitlement.cloud_foundry.endpoint:
+    description: "cloud foundry endpoint"
+  cf-security-entitlement.cloud_foundry.client_id:
+    description: "cloud foundry client id with cloud_controller.admin scope"
+  cf-security-entitlement.cloud_foundry.client_secret:
+    description: "cloud foundry client id with cloud_controller.secret scope"
+  cf-security-entitlement.cloud_foundry.skip_ssl_validation:
+    description: "skip ssl validation"
+    default: false
+  cf-security-entitlement.jwt.alg:
+    description: "Algorithm used to sign jwt"
+    default: "RS256"
+  cf-security-entitlement.jwt.secret:
+    description: "Public key used to sign jwt"
+  cf-security-entitlement.skip_ssl_validation:
+    description: ""
+    default: false
+  cf-security-entitlement.mysql.user:
+    description: ""
+  cf-security-entitlement.mysql.password:
+    description: ""
+  cf-security-entitlement.mysql.host:
+    description: ""
+    default: "database.service.cf.internal"
+  cf-security-entitlement.mysql.database:
+    description: ""
+  cf-security-entitlement.mysql.port:
+    description: ""
+    default: 3306
+  cf-security-entitlement.mysql.options:
+    description: ""
+    default: ""
+  cf-security-entitlement.mysql.cnx.max_open:
+    description: ""
+    default: "100"
+  cf-security-entitlement.mysql.cnx.max_idle:
+    description: ""
+    default: "100"
+  cf-security-entitlement.mysql.cnx.max_life:
+    description: ""
+    default: "1h"
+  cf-security-entitlement.log_level:
+    description: ""
+    default: "info"
+  cf-security-entitlement.ssl_cert:
+    description: ""
+  cf-security-entitlement.ssl_key:
+description: ""

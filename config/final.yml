@@ -1,0 +1,5 @@
+name: cf-security-entitlement
+blobstore:
+  provider: s3
+  options:
+    bucket_name: orange-dfy-cf-security-entitlement-boshrelease

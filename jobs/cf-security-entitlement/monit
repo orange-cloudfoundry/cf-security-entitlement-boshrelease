@@ -1,0 +1,6 @@
+
+check process cf-security-entitlement
+  with pidfile   /var/vcap/sys/run/bpm/cf-security-entitlement/cf-security-entitlement.pid
+  start program "/var/vcap/jobs/bpm/bin/bpm start cf-security-entitlement"
+  stop program  "/var/vcap/jobs/bpm/bin/bpm stop  cf-security-entitlement"
+group vcap

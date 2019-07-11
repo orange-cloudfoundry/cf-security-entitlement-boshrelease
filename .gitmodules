@@ -1,0 +1,3 @@
+[submodule "src/cf-security-entitlement"]
+	path = src/cf-security-entitlement
+	url = https://github.com/orange-cloudfoundry/cf-security-entitlement.git

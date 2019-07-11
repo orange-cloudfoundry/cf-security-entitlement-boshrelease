@@ -1,0 +1,8 @@
+---
+name: cf-security-entitlement-server
+
+dependencies:
+  - golang-1.12-linux
+
+files:
+  - cf-security-entitlement/**

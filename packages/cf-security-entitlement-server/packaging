@@ -1,0 +1,13 @@
+set -e
+
+ostype=$(uname  | tr '[:upper:]' '[:lower:]')
+if [ -z "$BOSH_PACKAGES_DIR" ]; then
+    pkg_dir=$(readlink -nf /var/vcap/packages/golang-1.12-${ostype})
+else
+    pkg_dir=$BOSH_PACKAGES_DIR/golang-1.12-${ostype}
+fi
+
+source ${pkg_dir}/bosh/compile.env
+
+cd cf-security-entitlement/server
+go build -mod=vendor -o ${BOSH_INSTALL_TARGET}/bin/cf-security-entitlement-server
