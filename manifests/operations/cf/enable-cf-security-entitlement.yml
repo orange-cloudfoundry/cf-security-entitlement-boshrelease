@@ -77,4 +77,4 @@
     name: cf-security-entitlement
     version: "1.0.0"
     url: https://github.com/orange-cloudfoundry/cf-security-entitlement-boshrelease/releases/download/v1.0.0/cf-security-entitlement-1.0.0.tgz
-    sha1: 611d5f107411ddd2ed37ee5b8a5a8b9cd6102b2c
+    sha1: a8aedc1ed3f24029ead92167c50519f3f527ccfe
