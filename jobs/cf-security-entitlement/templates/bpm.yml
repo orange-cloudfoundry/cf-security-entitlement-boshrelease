@@ -1,8 +1,8 @@
 processes:
   - name: cf-security-entitlement
-    executable: /var/vcap/packages/logservice/bin/cf-security-entitlement-server
+    executable: /var/vcap/packages/cf-security-entitlement-server/bin/cf-security-entitlement-server
     args: []
     env:
       CLOUD_FILE: /var/vcap/jobs/cf-security-entitlement/config/config.yml
     capabilities:
-  - NET_BIND_SERVICE
+      - NET_BIND_SERVICE

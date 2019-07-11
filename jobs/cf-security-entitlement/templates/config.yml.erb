@@ -22,16 +22,12 @@ services:
         skip_ssl_validation: <%= p('cf-security-entitlement.cloud_foundry.skip_ssl_validation') %>
       jwt:
         alg: <%= p('cf-security-entitlement.jwt.alg') %>
-        secret: <%= p('cf-security-entitlement.jwt.secret') %>
+        secret: "<%= p('cf-security-entitlement.jwt.secret').gsub(/\n/, "\\n") %>"
       sql_cnx_max_open: <%= p('cf-security-entitlement.mysql.cnx.max_open') %>
       sql_cnx_max_idle: <%= p('cf-security-entitlement.mysql.cnx.max_idle') %>
       sql_cnx_max_life: <%= p('cf-security-entitlement.mysql.cnx.max_life') %>
-        <% if_p('cf-security-entitlement.ssl_cert') do %>
-        <% if_p('cf-security-entitlement.ssl_key') do %>
-      ssl_cert_file: /var/vcap/jobs/cf-security-entitlement/config/ssl_cert.pem
-      ssl_key_file:  /var/vcap/jobs/cf-security-entitlement/config/ssl_key.pem
-      <% end %>
-    <% end %>
+      <% if_p('cf-security-entitlement.ssl_cert') do %><% if_p('cf-security-entitlement.ssl_key') do %>ssl_cert_file: /var/vcap/jobs/cf-security-entitlement/config/ssl_cert.pem
+      ssl_key_file:  /var/vcap/jobs/cf-security-entitlement/config/ssl_key.pem<% end %><% end %>
   - name: mysql
     credentials:
       user: "<%= p('cf-security-entitlement.mysql.user') %>"
