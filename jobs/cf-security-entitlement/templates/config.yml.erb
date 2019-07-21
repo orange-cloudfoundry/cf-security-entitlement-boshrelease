@@ -14,7 +14,7 @@ services:
       log_level: "<%= p('cf-security-entitlement.log_level') %>"
       log_no_color: true
       log_json: true
-      virtual_host: false
+      trusted_ca_certificates: <%= p('cf-security-entitlement.trusted_ca_certificates', []).to_json %>
       cloud_foundry:
         endpoint: <%= p('cf-security-entitlement.cloud_foundry.endpoint') %>
         client_id: <%= p('cf-security-entitlement.cloud_foundry.client_id') %>

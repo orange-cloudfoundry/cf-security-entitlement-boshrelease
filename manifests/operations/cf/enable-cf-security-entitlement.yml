@@ -7,8 +7,10 @@
       cf-security-entitlement:
         ssl_cert: ((cf_security_entitlement_public_tls.certificate))
         ssl_key: ((cf_security_entitlement_public_tls.private_key))
+        trusted_ca_certificates:
+          - ((cc_tls.ca))
         cloud_foundry:
-          endpoint: https://api.((system_domain))
+          endpoint: https://cloud-controller-ng.service.cf.internal
           client_id: cf-security-entitlement
           client_secret: ((uaa_clients_cf-security-entitlement_secret))
         jwt:
@@ -75,6 +77,6 @@
   path: /releases/-
   value:
     name: cf-security-entitlement
-    version: "1.0.0"
-    url: https://github.com/orange-cloudfoundry/cf-security-entitlement-boshrelease/releases/download/v1.0.0/cf-security-entitlement-1.0.0.tgz
-    sha1: a8aedc1ed3f24029ead92167c50519f3f527ccfe
+    version: "1.0.1"
+    url: https://github.com/orange-cloudfoundry/cf-security-entitlement-boshrelease/releases/download/v1.0.1/cf-security-entitlement-1.0.1.tgz
+    sha1: 44f32853494248de9a3348db4ad4030b74f75ee3

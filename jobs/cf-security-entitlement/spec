@@ -25,6 +25,9 @@ properties:
   cf-security-entitlement.cloud_foundry.skip_ssl_validation:
     description: "skip ssl validation"
     default: false
+  cf-security-entitlement.trusted_ca_certificates:
+    description: "trusted certificates to use to communicate with cloud foundry"
+    default: []
   cf-security-entitlement.jwt.alg:
     description: "Algorithm used to sign jwt"
     default: "RS256"
