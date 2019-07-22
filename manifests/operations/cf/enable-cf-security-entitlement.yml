@@ -10,7 +10,7 @@
         trusted_ca_certificates:
           - ((cc_tls.ca))
         cloud_foundry:
-          endpoint: https://cloud-controller-ng.service.cf.internal
+          endpoint: "https://cloud-controller-ng.service.cf.internal:9024"
           client_id: cf-security-entitlement
           client_secret: ((uaa_clients_cf-security-entitlement_secret))
         jwt:
