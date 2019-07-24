@@ -1,0 +1,23 @@
+name: cf-security-entitlement
+version: 1.0.2
+commit_hash: 2a8dc1c
+uncommitted_changes: true
+jobs:
+- name: cf-security-entitlement
+  version: cfaa6c9cf1e8a02da41a95dc23d94d063fad47390d3623d9f51f7ba1e77eaa78
+  fingerprint: cfaa6c9cf1e8a02da41a95dc23d94d063fad47390d3623d9f51f7ba1e77eaa78
+  sha1: sha256:a5f4587185237b7dcea671cad999042cb3dbcae0a4201a2e801dd1c9e2eef975
+  packages:
+  - cf-security-entitlement-server
+packages:
+- name: cf-security-entitlement-server
+  version: a8d749137986dd0044c3d10fe5d14ae78afdda6b2596bfaaadb9657bfabadc8f
+  fingerprint: a8d749137986dd0044c3d10fe5d14ae78afdda6b2596bfaaadb9657bfabadc8f
+  sha1: sha256:51843250ba1f8029162b1fa320d2ecbb2d88c9ea303b5fe12a5109941d5ceb71
+  dependencies:
+  - golang-1.12-linux
+- name: golang-1.12-linux
+  version: 366fab6a3d5aabbaf5dd48b146f961310322fd86aed24bc3bc50fca22561390d
+  fingerprint: 366fab6a3d5aabbaf5dd48b146f961310322fd86aed24bc3bc50fca22561390d
+  sha1: sha256:12e13365acb8d011c367ceff3045c59418b354e6b57d664af59af2b007668fcb
+  dependencies: []
