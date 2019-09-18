@@ -17,6 +17,7 @@ services:
       trusted_ca_certificates: <%= p('cf-security-entitlement.trusted_ca_certificates', []).to_json %>
       cloud_foundry:
         endpoint: <%= p('cf-security-entitlement.cloud_foundry.endpoint') %>
+        uaa_endpoint: <%= p('cf-security-entitlement.cloud_foundry.uaa_endpoint') %>
         client_id: <%= p('cf-security-entitlement.cloud_foundry.client_id') %>
         client_secret: <%= p('cf-security-entitlement.cloud_foundry.client_secret') %>
         skip_ssl_validation: <%= p('cf-security-entitlement.cloud_foundry.skip_ssl_validation') %>

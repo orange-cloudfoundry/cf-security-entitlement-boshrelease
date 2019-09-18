@@ -18,6 +18,9 @@ packages:
 properties:
   cf-security-entitlement.cloud_foundry.endpoint:
     description: "cloud foundry endpoint"
+  cf-security-entitlement.cloud_foundry.uaa_endpoint:
+    description: "cloud foundry uaa endpoint"
+    default: ""
   cf-security-entitlement.cloud_foundry.client_id:
     description: "cloud foundry client id with cloud_controller.admin scope"
   cf-security-entitlement.cloud_foundry.client_secret:
