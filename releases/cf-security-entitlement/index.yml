@@ -7,4 +7,6 @@ builds:
     version: 1.0.2
   b128bf95-48ab-4f5c-5775-e2af2274d1ea:
     version: 1.0.3
+  bae9a69b-4931-4edd-7a77-1aab0c5a9268:
+    version: 1.0.4
 format-version: "2"
