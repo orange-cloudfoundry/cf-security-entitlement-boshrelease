@@ -1,0 +1,16 @@
+<%
+  database_address = nil
+  if_p('cf-security-entitlement.mysql.host') do |host|
+    database_address = host
+  end.else do
+    database_address = link('database').instances[0].address
+  end
+%>
+{
+  "username": "<%= p("cf-security-entitlement.mysql.user") %>",
+  "password": "<%= p("cf-security-entitlement.mysql.password") %>",
+  "database": "<%= p("cf-security-entitlement.mysql.database") %>",
+  "host": "<%= database_address %>",
+  "port": <%= p("cf-security-entitlement.mysql.port") %>,
+  "adapter": "mysql"
+}

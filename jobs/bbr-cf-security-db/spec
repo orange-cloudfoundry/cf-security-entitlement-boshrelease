@@ -1,0 +1,31 @@
+---
+name: bbr-cf-security-db
+
+templates:
+  bbr.json.erb: config/bbr.json
+  backup.sh.erb: bin/bbr/backup
+  restore.sh.erb: bin/bbr/restore
+
+packages: []
+
+consumes:
+  - name: database
+    type: database
+    optional: true
+
+properties:
+  release_level_backup:
+    default: false
+    description: "Include cf-security-entitlement DB in backup and restore operations"
+  cf-security-entitlement.mysql.user:
+    description: ""
+  cf-security-entitlement.mysql.password:
+    description: ""
+  cf-security-entitlement.mysql.host:
+    description: ""
+    default: "database.service.cf.internal"
+  cf-security-entitlement.mysql.database:
+    description: ""
+  cf-security-entitlement.mysql.port:
+    description: ""
+    default: 3306

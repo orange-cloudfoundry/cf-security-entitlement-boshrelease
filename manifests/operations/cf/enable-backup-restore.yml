@@ -1,0 +1,13 @@
+- type: replace
+  path: /instance_groups/name=backup-restore/jobs/-
+  value:
+    name: bbr-cf-security-db
+    properties:
+      release_level_backup: true
+      cf-security-entitlement:
+        mysql:
+          user: cf-security-entitlement
+          password: ((cf-security-entitlement-mysql-password))
+          host: sql-db.service.cf.internal
+          database: cf-security-entitlement
+    release: cf-security-entitlement
