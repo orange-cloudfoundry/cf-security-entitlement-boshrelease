@@ -121,4 +121,6 @@ builds:
     version: 1.27.1
   fe8aeb10-d58a-42a4-4dcb-373ff9fe83fe:
     version: 1.0.5
+  ffcd1a8c-ce92-4d80-7c5f-e8e03895faa2:
+    version: 1.27.4
 format-version: "2"
