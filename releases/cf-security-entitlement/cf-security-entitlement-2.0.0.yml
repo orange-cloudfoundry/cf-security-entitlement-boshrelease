@@ -1,0 +1,22 @@
+name: cf-security-entitlement
+version: 2.0.0
+commit_hash: 1a585cd
+uncommitted_changes: false
+jobs:
+- name: bbr-cf-security-db
+  version: a0d312efb42fb93fb1abe5906f33e4576d15435b1d4c6296485209a33dd90837
+  fingerprint: a0d312efb42fb93fb1abe5906f33e4576d15435b1d4c6296485209a33dd90837
+  sha1: sha256:aa06e2dcca658858c05a17a69d948fdab625eaa72d5e80e694b1e38b7d07c7f1
+  packages: []
+- name: cf-security-entitlement
+  version: 72325530528cddf11e3de2c85bb574c9d64c15e1f8ce553ce4ea11a2f6cde459
+  fingerprint: 72325530528cddf11e3de2c85bb574c9d64c15e1f8ce553ce4ea11a2f6cde459
+  sha1: sha256:2004c7efd49b89a1caa07bd5c0206108ac9477d4513ed3f12dd0a7c471455367
+  packages:
+  - cf-security-entitlement-server
+packages:
+- name: cf-security-entitlement-server
+  version: eb8b9473b06a9225e654f81284665814ff4abc554360034af24272c7d3ce7059
+  fingerprint: eb8b9473b06a9225e654f81284665814ff4abc554360034af24272c7d3ce7059
+  sha1: sha256:cf9b1b9f6ef43d314c209bcef6bce0f1478521a933161db4f0f48d3b5f7ff119
+  dependencies: []
