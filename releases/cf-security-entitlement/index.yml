@@ -305,6 +305,8 @@ builds:
     version: 1.42.5
   b625c682-2c45-421d-51a2-7a5ddb116fb6:
     version: 1.55.0
+  b9854aaf-b994-4d42-514d-3edbf4c18cad:
+    version: 2.34.1
   b99a452d-d5d0-427e-6ab9-4a07108f939a:
     version: 2.32.2
   ba9dd750-039c-45fa-7a49-835f61467d3d:
